@@ -1,0 +1,31 @@
+<MyGameLayout>
+    secret_word: secret_word
+    guess: guess
+    results: results
+    GridLayout:
+        cols: 1
+        size: root.width, root.height
+        padding: 5
+        Label:
+            text: "Guess Star Wars Character"
+        Label:
+            id: results
+            font_size: 26
+        Label:
+            id: secret_word
+            font_size: 56
+            text: "Star Wars Character"
+        Button:
+            text: "Start the game"
+            on_press: root.btn()
+
+        TextInput:
+            id: guess
+            multiline: False
+            font_size: 56
+            font_family:
+        Button:
+            text: "is it here"
+            on_press: root.qbtn()
+
+
