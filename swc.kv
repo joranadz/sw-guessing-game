@@ -5,27 +5,40 @@
     GridLayout:
         cols: 1
         size: root.width, root.height
-        padding: 5
+        padding: 10
+        background_color: 0.058, 0.082, 0.27
+
         Label:
             text: "Guess Star Wars Character"
+
         Label:
             id: results
             font_size: 26
+
         Label:
             id: secret_word
             font_size: 56
             text: "Star Wars Character"
+        GridLayout:
+            cols: 2
+
+            TextInput:
+                id: guess
+                multiline: False
+                font_size: 56
+                background_color: 0.058, 0.082, 0.27
+            Button:
+                text: "is it here"
+                on_press: root.qbtn()
+                background_color: 0.058, 0.082, 0.27
+                margin: 25
+
+
         Button:
             text: "Start the game"
             on_press: root.btn()
+            background_color: 0.058, 0.082, 0.27
 
-        TextInput:
-            id: guess
-            multiline: False
-            font_size: 56
-            font_family:
-        Button:
-            text: "is it here"
-            on_press: root.qbtn()
+
 
 
