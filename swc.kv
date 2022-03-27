@@ -1,7 +1,8 @@
-<MyGameLayout>
-    secret_word: secret_word
-    guess: guess
-    results: results
+<WindowManager>
+    MainWindow:
+    FirsWindow:
+<MainWindow>
+    name: "Main"
     GridLayout:
         cols: 1
         size: root.width, root.height
@@ -10,7 +11,23 @@
 
         Label:
             text: "Guess Star Wars Character"
+            font_size: 56
 
+        Button:
+            text: "Play"
+            on_release: app.root.current = "Play"
+            background_color: 0.058, 0.082, 0.27
+            font_size: 42
+<FirsWindow>
+    name: "Play"
+    secret_word: secret_word
+    guess: guess
+    results: results
+    GridLayout:
+        cols: 1
+        size: root.width, root.height
+        padding: 10
+        background_color: 0.058, 0.082, 0.27
         Label:
             id: results
             font_size: 26
@@ -27,18 +44,16 @@
                 multiline: False
                 font_size: 56
                 background_color: 0.058, 0.082, 0.27
+
             Button:
                 text: "is it here"
                 on_press: root.qbtn()
                 background_color: 0.058, 0.082, 0.27
                 margin: 25
-
-
         Button:
-            text: "Start the game"
-            on_press: root.btn()
+            text: "Reset"
+            on_release: app.root.current = "Main"
             background_color: 0.058, 0.082, 0.27
-
 
 
 

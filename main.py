@@ -3,13 +3,20 @@ import random
 from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.properties import ObjectProperty
+from kivy.uix.screenmanager import ScreenManager, Screen
 
-class MyGameLayout(Widget):
+class MainWindow(Screen):
+    pass
+
+class WindowManager(ScreenManager):
+    pass
+
+class FirsWindow(Screen):
     secret_word: ObjectProperty(None)
     results: ObjectProperty(None)
     guess: ObjectProperty(None)
 
-    def btn(self):
+    def on_enter(self, *args):
         # Open file with all names, and take random name for the guessing
         file_with_characters = open("SWOGH_Characters.txt", "r").read().splitlines()
         secret_word = random.choice(file_with_characters)
@@ -46,11 +53,12 @@ class MyGameLayout(Widget):
         if self.tries == -1:
             self.results.text = ("You Lost")
             self.secret_word.text = self.SGC
+        self.guess.text = ""
 
 
 class SWCApp(App):
     def build(self):
-        return MyGameLayout()
+        return WindowManager()
 
 if __name__ == '__main__':
     SWCApp().run()
